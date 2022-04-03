@@ -42,6 +42,28 @@
             return "Please enter a valid selection.";
         }
       }
+      function game() {
+        let playerScore = 0;
+        let computerScore = 0;
+        let round = 1;
+        while (round <= 5) {
+          const playerSelection = prompt(`Round ${round}: Please enter your selection. (Rock, Paper, or Scissors)`);
+          const computerSelection = computerPlay();
+          const result = playRound(playerSelection, computerSelection);
+          if (result.includes("You win!")) {
+            playerScore++;
+          } else if (result.includes("You lose!")) {
+            computerScore++;
+          }
+          round++;
+          alert(result);
+        }
+        if (playerScore > computerScore) {
+          alert(`You win the game! You had ${playerScore} points and the computer had ${computerScore} points.`);
+        } else {
+          alert(`You lose the game! You had ${playerScore} points and the computer had ${computerScore} points.`);
+        }
+      }
     </script>
   </body>
 </html>
